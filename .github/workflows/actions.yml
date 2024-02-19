@@ -8,11 +8,11 @@ jobs:
       packages: write
       contents: read
     env:
-      NUGET_PACKAGES: '$HOME/.nuget/packages'   
+      NUGET_PACKAGES: ~/.nuget/packages 
     steps:
 
     - name: Show me home
-      run: echo '$HOME/.nuget/packages'   
+      run: echo ~/.nuget/packages   
     
     - uses: actions/checkout@v3
       
@@ -23,7 +23,7 @@ jobs:
 
     - uses: actions/cache@v3
       with:
-          path:  ${{ env.USER_FOLDER }}\.nuget\packages
+          path:  ~/.nuget/packages 
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }} #hash of project files
           restore-keys: |
             ${{ runner.os }}-nuget-
