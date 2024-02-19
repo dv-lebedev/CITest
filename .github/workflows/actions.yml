@@ -8,12 +8,11 @@ jobs:
       packages: write
       contents: read
     env:
-      USER_FOLDER: $HOME
-      NUGET_PACKAGES: ${{ env.USER_FOLDER }}/.nuget/packages   
+      NUGET_PACKAGES: '$HOME/.nuget/packages'   
     steps:
 
     - name: Show me home
-      run: echo $HOME
+      run: echo '$HOME/.nuget/packages'   
     
     - uses: actions/checkout@v3
       
