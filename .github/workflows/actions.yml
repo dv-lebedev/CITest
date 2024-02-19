@@ -10,6 +10,9 @@ jobs:
     env:
       NUGET_PACKAGES: $HOME/.nuget/packages   
     steps:
+
+    - name: Show me home
+      run: echo $HOME
     
     - uses: actions/checkout@v3
       
