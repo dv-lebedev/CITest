@@ -9,9 +9,7 @@ jobs:
       contents: read
     steps:
 
-    - name: List files in the repository
-      run: |
-        ls '~/.nuget/packages'
+
     
     - uses: actions/checkout@v3
       
@@ -29,6 +27,10 @@ jobs:
 
     - name: Restore dependencies
       run:  dotnet restore CITest.sln 
+
+    - name: List files in the repository
+      run: |
+        ls '~/.nuget/packages'
 
     - name: Build
       run: dotnet build CITest.sln  --no-restore
