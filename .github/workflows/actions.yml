@@ -8,7 +8,8 @@ jobs:
       packages: write
       contents: read
     env:
-      NUGET_PACKAGES: ${{ $HOME }}/.nuget/packages   
+      USER_FOLDER: $HOME
+      NUGET_PACKAGES: ${{ env.USER_FOLDER }}/.nuget/packages   
     steps:
 
     - name: Show me home
@@ -23,7 +24,7 @@ jobs:
 
     - uses: actions/cache@v3
       with:
-          path:  ${{ $HOME }}\.nuget\packages
+          path:  ${{ env.USER_FOLDER }}\.nuget\packages
           key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }} #hash of project files
           restore-keys: |
             ${{ runner.os }}-nuget-
